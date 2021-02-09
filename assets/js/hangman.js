@@ -42,7 +42,7 @@ function updateDisplay() {
     if (remainingGuesses <= 0) {
         document.getElementById("red").style.width = "105%";
     }
-    document.getElementById("letters").innerText = letters;
+
     
 
     if(guesses.indexOf("_") === -1) {
