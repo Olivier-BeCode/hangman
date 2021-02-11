@@ -3,10 +3,9 @@ let list = ["PLAYER", "HANGMAN", "RANDOM", "WORD", "CODING", "WOODS", "GAME", "D
 let letters = [];        
 let wordIndex;           
 let guesses = [];         
-let remainingGuesses = 0;      
+let remainingGuesses = 7;      
 let hasFinished = false;                         
 
-remainingGuesses = 7;
 wordIndex = Math.floor(Math.random() * (list.length));
 for (let i = 0; i < list[wordIndex].length; i++) {
         guesses.push("_");
@@ -21,6 +20,7 @@ function updateDisplay() {
 
     document.getElementById("currentWord").innerText = guessesText;
     document.getElementById("remainingGuesses").innerText = remainingGuesses;
+
     if (remainingGuesses <= 6) {
         document.getElementById("red").style.width = "15%";
     }
@@ -40,7 +40,7 @@ function updateDisplay() {
         document.getElementById("red").style.width = "90%";
     }
     if (remainingGuesses <= 0) {
-        document.getElementById("red").style.width = "105%";
+        document.getElementById("red").style.width = "102%";
     }
 
     
@@ -48,6 +48,8 @@ function updateDisplay() {
     if(guesses.indexOf("_") === -1) {
         hasFinished = true;
         document.getElementById("won").innerText = "You Won - Reload the page";
+        document.getElementById("perso").style.left = "140vw";
+        document.getElementById("perso").style.opacity = "0%";
     }
     else if(remainingGuesses <= 0) {
         hasFinished = true;
