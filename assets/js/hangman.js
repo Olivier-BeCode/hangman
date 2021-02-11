@@ -4,7 +4,8 @@ let letters = [];
 let wordIndex;           
 let guesses = [];         
 let remainingGuesses = 7;      
-let hasFinished = false;                         
+let hasFinished = false;     
+
 
 wordIndex = Math.floor(Math.random() * (list.length));
 for (let i = 0; i < list[wordIndex].length; i++) {
@@ -47,13 +48,16 @@ function updateDisplay() {
 
     if(guesses.indexOf("_") === -1) {
         hasFinished = true;
-        document.getElementById("won").innerText = "You Won - Reload the page";
+        document.getElementById("won").innerText = "You Won";
         document.getElementById("perso").style.left = "140vw";
-        document.getElementById("perso").style.opacity = "0%";
+        document.getElementById("perso").style.opacity = "0%"; 
+        setTimeout(function() {window.location.reload(false)}, 1000);
     }
+    
     else if(remainingGuesses <= 0) {
         hasFinished = true;
-        document.getElementById("won").innerText = "You Lost - Reload the page";
+        document.getElementById("won").innerText = "You Lost";
+        setTimeout(function() {window.location.reload(false)}, 1000);
     }
 };
 
